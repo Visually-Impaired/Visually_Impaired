@@ -1,19 +1,36 @@
 #body{
     background-color: #35363a;
+    padding: 0px 0px;
 }
 #outer-box{
-    /* border: 2px solid white; */
+    border: 2px solid #202124;
     border-radius: 10px;
     background-color: #202124;
-    padding: 15px 5px; 
+    padding: 10px 5px; 
     display: block;
 }
 .heading-text{
     color: white;
+    text-align: center;
 }
 #wiki-button{
     height: 20%;
     padding: 10px 0px;
+}
+.options2{
+    width: 80%;
+    padding: 10px 7px;
+    border: 1px solid grey;
+    border-radius: 7px;
+    margin: 4px 0px;
+    color : white;
+    text-align: center;
+    font-size: 15px;
+    background-color: #202124;
+}
+.options2:hover{
+    background-color: white;
+    color: black;
 }
 #round-corners{
     border: 1px solid white;
@@ -37,7 +54,7 @@
 }
 .options{
     width: 93%;
-    padding: 5px 18px;
+    padding: 10px 18px;
     border: 1px solid grey;
     border-radius: 7px;
     margin: 4px 0px;
@@ -57,7 +74,7 @@
     padding: 15px 5px;
     background-color: #202124;
     border-radius: 10px;
-    display: none;
+    /* display: none; */
 }
 
 #back-button{
@@ -76,15 +93,16 @@
     padding-top: 10px;
 }
 #radio-options{
-    padding: 0px 10px;
+    height: 48%;
+    padding-bottom: 10px;
 }
 .radio-button{
-    padding: 5px 10px;
+    padding: 7px 0px;
     background-color: white;
 }
 .cb-options{
-    width: 93%;
-    padding: 5px 10px;
+    width: 90%;
+    padding: 10px 0px;
     border: 1px solid grey;
     border-radius: 7px;
     margin: 7px 0px;
@@ -99,7 +117,7 @@
     color: white;
 }
 .btn{
-    padding: 2px 10px;
+    padding: 5px 10px;
     border: 1px solid grey;
     background-color: #202124;
     border-radius: 7px;

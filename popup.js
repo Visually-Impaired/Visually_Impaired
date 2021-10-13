@@ -5,13 +5,13 @@ const HideDiv = document.getElementById('outer-box')
 let cb_btn = document.getElementById("cb-button");
 console.log(cb_btn)
 
-cb_btn.addEventListener("click", function(){
+document.getElementById("cb-button").onclick = function opencb (){
     console.log("inside opencb")
     if(targetDiv.style.display == "none"){
         HideDiv.style.display = "none";
         targetDiv.style.display = "block";
     }
-});
+}
 // function opencb(){
     
 // };
