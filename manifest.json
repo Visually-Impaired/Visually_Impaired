@@ -5,11 +5,19 @@
     "content_scripts": [
       {
         "matches": ["<all_urls>"],
-        "js" : ["content.js", "content2.js"]
+        "js" : [ "/content/content_navigation_voice_search.js",
+        "/content/content_summary.js", "/content/content_newtab.js"]
       }
     ],
     "browser_action": {
       "default_title": "Visually Impaired",
-      "default_popup":"popup.html"
-    }
+      "default_popup":"/popup/popup.html"
+    },
+    "background" : {
+      "scripts" : ["background.js"]
+    },
+    "permissions" : [
+      "tabs",
+      "activeTab"
+    ]
   }
