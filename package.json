@@ -1,0 +1,25 @@
+{
+  "name": "Visually_Impaired",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Visually-Impaired/Visually_Impaired.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Visually-Impaired/Visually_Impaired/issues"
+  },
+  "homepage": "https://github.com/Visually-Impaired/Visually_Impaired#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12",
+    "nodemon": "^2.0.14"
+  }
+}
