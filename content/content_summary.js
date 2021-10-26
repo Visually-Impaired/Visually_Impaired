@@ -41,13 +41,14 @@ function summaryClicked(){
 
     let title_wiki = pageHeading.textContent
     let data = {
+        tab_id : "content_summary",
         title : title_wiki,
         summary : summary_wiki
     }
 
         // chrome.runtime.sendMessage(message)
         // chrome.runtime.sendMessage({from:"content_summary", message:data})
-        chrome.runtime.sendMessage(null)
+        chrome.runtime.sendMessage(data)
         // console.log(title)
 
         // export {message}

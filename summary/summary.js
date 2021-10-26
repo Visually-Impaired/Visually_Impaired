@@ -1,3 +1,11 @@
-// import {message} from "../content/content_summary.js"
+const heading = document.getElementById("sum-heading")
+const summaryBody = document.getElementById("outer_box")
 
-console.log("hello")
+
+
+chrome.runtime.sendMessage({tab_id:"summary"}, function(response)
+{
+    heading.textContent = response.title
+    summaryBody.textContent = response.summary
+})
+
