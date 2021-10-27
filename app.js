@@ -8,9 +8,16 @@ const { once } = require('events');
 const { spawn } = require('child_process');
 const { resolve } = require('path')
 const { get } = require('http')
+
+const cors = require("cors");
+const corsOptions = {
+  origin: '*',
+  credentials: true,
+  optionSuccessStatus: 200,
+}
 //middleware
 mongoose.connect('mongodb://localhost:27017/dhrishti_database', { useNewUrlParser: true, useUnifiedTopology: true })
-
+app.use(cors(corsOptions))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
