@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const TodoSchema = new mongoose.Schema({
-	keyword : { type: String, required: true },
+	keyword : { type: String},
     summary : {type: String, required: true},
 	date: {
 		type: Number,
