@@ -106,9 +106,9 @@
     flex-direction: column;
     align-content: center;
 }
-.radio-button{
+/* .radio-button{
     background-color: white;
-}
+} */
 .cb-options{
     width: 93%;
     padding: 10px 0px;
