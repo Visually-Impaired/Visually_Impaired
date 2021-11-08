@@ -81,7 +81,15 @@
 #back-button-div{
     padding-left: 5px;
 }
-#back-button{
+#back-button1{
+    color: grey;
+    font-size : 15px;
+    background-color: #202124;
+    border: 1px solid grey;
+    border-radius: 7px;
+    height: 10%;
+}
+#back-button2{
     color: grey;
     font-size : 15px;
     background-color: #202124;
