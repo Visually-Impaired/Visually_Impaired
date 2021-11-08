@@ -11,8 +11,6 @@
     const pageHeading = document.getElementById("firstHeading");
     // const parentNode = document.getElementById("content")
 
-
-
     //appending button to page
     let wrapperDiv = document.createElement("div")
     pageHeading.parentNode.insertBefore(wrapperDiv, pageHeading.nextSibling);
@@ -29,8 +27,6 @@
 
 
 
-
-
 //event listener on button
 summaryButton.addEventListener('click', summaryClicked)
 
@@ -44,6 +40,8 @@ function summaryClicked(){
         title : title_wiki,
         summary : summary_wiki
     }
+
+
 
         // chrome.runtime.sendMessage(message)
         // chrome.runtime.sendMessage({from:"content_summary", message:data})

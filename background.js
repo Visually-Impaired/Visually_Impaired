@@ -11,5 +11,7 @@ function newTab(message, sender, sendResponse)
     //     chrome.tabs.sendMessage(content_newtab_id, message)
     // }
     chrome.tabs.create({url: chrome.extension.getURL("summary/summary.html")})
+    console.log("hello from background")
+    document.getElementById("body").style.backgroundColor = red;
     console.log(sender)
 }
