@@ -31,13 +31,9 @@ function newTab(message, sender, sendResponse)
     }
     if(message.tab_id == "magnifier")
     {
-        let magnifierStrength = 1.4
-        let magnifierSize = 700
-        let magnifierShape = 100
-
-        magnifierStrength = message.str,
-        magnifierSize = message.size,
-        magnifierShape = message.shape
+        let magnifierStrength = message.str
+        let magnifierSize = message.size
+        let magnifierShape = message.shape
 
         chrome.tabs.captureVisibleTab({format : "png"}, function(screenshotUrl){
             chrome.tabs.insertCSS(sender.tab.id, {file : "/magnifier/snapshot2.css"}, function(){

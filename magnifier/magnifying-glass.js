@@ -12,7 +12,7 @@ chrome.runtime.onMessage.addListener(function transfer(config, sender){
 
     // create variables for the data sent here
     let imageUrl = config.snapshot_url
-    let zoom = config.page_zoom * 2
+    let zoom = config.page_zoom * 1
     let strength = config.magnifier_str;
     let magniSize = config.magnifier_size/zoom;
     let magShape = config.magnifier_shape;
