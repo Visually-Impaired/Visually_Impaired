@@ -69,3 +69,18 @@ function save_options()
     })
     
 }
+
+//////////////////////////
+// For colorblindness
+
+//elements 
+const prot_btn = document.getElementById("prot")
+
+prot_btn.addEventListener("click", protanopia_func)
+
+function protanopia_func()
+{
+    chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
+        chrome.tabs.sendMessage(tabs[0].id, {tab_id : "protanopia"})
+    })
+}
