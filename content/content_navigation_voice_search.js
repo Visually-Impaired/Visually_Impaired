@@ -1,5 +1,8 @@
+
+
 //elements
 const search = document.getElementById("searchInput")
+
 
 //speech synthesis
 const utterance = new SpeechSynthesisUtterance()
