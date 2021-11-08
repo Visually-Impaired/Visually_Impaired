@@ -14,10 +14,10 @@ function newTab(message, sender, sendResponse)
     //     chrome.tabs.sendMessage(content_newtab_id, message)
     // }
 
-    chrome.tabs.create({url: chrome.extension.getURL("summary/summary.html")})
-    console.log("hello from background")
-    document.getElementById("body").style.backgroundColor = red;
-    console.log(sender)
+    // chrome.tabs.create({url: chrome.extension.getURL("summary/summary.html")})
+    // console.log("hello from background")
+    // document.getElementById("body").style.backgroundColor = red;
+    // console.log(sender)
 
     if(message.tab_id === "content_summary")
     {
@@ -28,6 +28,34 @@ function newTab(message, sender, sendResponse)
     if(message.tab_id === "summary")
     {
         sendResponse({title: title_data, summary : summary_data})
+    }
+    if(message.tab_id == "magnifier")
+    {
+        let magnifierStrength = 1.4
+        let magnifierSize = 700
+        let magnifierShape = 100
+
+        magnifierStrength = message.str,
+        magnifierSize = message.size,
+        magnifierShape = message.shape
+
+        chrome.tabs.captureVisibleTab({format : "png"}, function(screenshotUrl){
+            chrome.tabs.insertCSS(sender.tab.id, {file : "/magnifier/snapshot2.css"}, function(){
+                chrome.tabs.executeScript(sender.tab.id, {file : "/magnifier/jquery-3.2.1.min.js"}, function(){
+                    chrome.tabs.executeScript(sender.tab.id, {file : "/magnifier/magnifying-glass.js"}, function(){
+                        chrome.tabs.getZoom(sender.tab.id, function(zoomFactor){
+                            chrome.tabs.sendMessage(sender.tab.id, {                        
+                                snapshot_url : screenshotUrl,
+                                magnifier_str : magnifierStrength,
+                                magnifier_size : magnifierSize,
+                                magnifier_shape : magnifierShape,
+                                page_zoom : zoomFactor,
+                            })
+                        })
+                    })
+                })
+            })
+        })
     }
     
     // console.log(sender)
