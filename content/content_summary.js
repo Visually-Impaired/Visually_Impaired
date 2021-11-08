@@ -44,7 +44,7 @@ function summaryClicked(){
     console.log(token)
     // add this token to the link needed for api 
 
-    let api_link = "https://c104-117-241-165-48.ngrok.io/api/" + token
+    let api_link = "https://7386-2401-4900-599e-f8b6-3149-f4f7-7fa7-c3bf.ngrok.io/api/" + token
 
     const xhr = new XMLHttpRequest();
     xhr.open("GET", api_link)
