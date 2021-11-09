@@ -25,11 +25,12 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendRequest){
             var image = new Image();
             image.src = current_img.src;
             console.log(image.src);
+            image.setAttribute('crossOrigin', '');
             // image.onload = () => {
             //     ctx.drawImage(image, 0, 0);
             // }
 
-            ctx.drawImage(image, w, h);
+            //ctx.drawImage(image, 0, 0, w, h);
             var imageData = ctx.getImageData(0, 0, w, h);
 
             var reds = 0;
