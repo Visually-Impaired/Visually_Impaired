@@ -44,7 +44,8 @@ function summaryClicked(){
     console.log(token)
     // add this token to the link needed for api 
 
-    let api_link = "https://7386-2401-4900-599e-f8b6-3149-f4f7-7fa7-c3bf.ngrok.io/api/" + token
+    let api_link = "https://7386-2401-4900-599e-f8b6-3149-f4f7-7fa7-c3bf.ngrok.io/" + token
+    // let api_link = "https://git.heroku.com/dhrishti-final-api.git/" + token
 
     const xhr = new XMLHttpRequest();
     xhr.open("GET", api_link)
