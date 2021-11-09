@@ -81,7 +81,7 @@
 #back-button-div{
     padding-left: 5px;
 }
-#back-button1{
+.back-button{
     color: grey;
     font-size : 15px;
     background-color: #202124;
@@ -89,14 +89,7 @@
     border-radius: 7px;
     height: 10%;
 }
-#back-button2{
-    color: grey;
-    font-size : 15px;
-    background-color: #202124;
-    border: 1px solid grey;
-    border-radius: 7px;
-    height: 10%;
-}
+
 #back-button:hover{
     background-color: white;
     color: black;
@@ -147,4 +140,81 @@
 }
 #submit{
     margin-left: 20px;
+}
+
+#magnifier{
+    border: 2px solid #202124;
+    border-radius: 10px;
+    background-color: #202124;
+    padding: 10px 10px; 
+    display: block;
+    margin: -7px -7px;
+}
+
+#mfr-heading{
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+/* height: 7%;
+    color: grey;
+    font-size: 13px;
+    padding-left: 5px;
+    padding-top: 5px; */
+
+
+.magnifier-options{
+    padding: 5px 5px;
+    color : white;
+    font-size: 13px;
+}
+
+.circular-box{
+    border : 1px solid grey;
+    border-radius: 7px;
+    padding: 2px;
+    padding-top: 5px;
+    margin: 8px 0px;
+}
+
+.input-text{
+    display: flex;
+}
+
+.input-options{
+    padding-top: 3px;
+    padding-bottom: 7px;
+}
+
+.options-text{
+    color: white;
+    margin-top: 7px;
+    padding-left: 2px;
+}
+
+#label-options{
+    padding-top: 5px;
+}
+
+.shape-options{
+    color:white;
+    padding: 5px;
+}
+
+#save-btn{
+    padding-top: 10px;
+}
+
+#save{
+    background-color: #202124;
+    border: 1px solid grey;
+    border-radius: 7px;
+    padding: 10px 15px;
+    color: white;
+}
+
+#save:hover{
+    background-color: white;
+    color: #202124;
+    border: 1px solid white;
 }
