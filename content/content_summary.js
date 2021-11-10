@@ -53,7 +53,7 @@ function summaryClicked(){
     let current_url = location.href
     let arr = current_url.split('/')
     let token = arr.at(-1)
-    console.log(token)
+    // console.log(token)
     // add this token to the link needed for api 
 
     // let api_link = "https://7386-2401-4900-599e-f8b6-3149-f4f7-7fa7-c3bf.ngrok.io/" + token
@@ -67,9 +67,7 @@ function summaryClicked(){
     // xhr.withCredentials = true;
     xhr.setRequestHeader("Content_Type", "application/json")
     let summary_wiki
-    xhr.onreadystatechange = () => {
-        if(this.readyState === XMLHttpRequest.DONE && this.status === 200)
-        {
+    xhr.onload = () => {
             summary_wiki = xhr.response
         // console.log(data_api)
         let title_wiki = pageHeading.textContent
@@ -79,11 +77,6 @@ function summaryClicked(){
             summary : summary_wiki
             }
         chrome.runtime.sendMessage(data)
-        }
-        else
-        {
-            console.log("didn't work")
-        }
         
     }
 
@@ -110,7 +103,7 @@ function summaryClicked(){
         next = next.nextElementSibling
         i++
     }
-    console.log(first_area)
+    // console.log(first_area)
     let post_data = {
         "text" : first_area
     }
