@@ -26,12 +26,7 @@
     summaryButton.style.fontSize = "16px"
 
 
-    // fetch('https://regres.in/api/users', {
-    //     mode : 'no-cors',
-    //     credentials : "include",
-    //     method : 'GET'
-    // }).then(res =>console.log(res)).then(data => console.log(data)).catch(error => console.log(error.message))
-
+    
 
 //event listener on button
 summaryButton.addEventListener('click', summaryClicked)
@@ -48,10 +43,11 @@ function summaryClicked(){
     // let api_link = "https://git.heroku.com/dhrishti-final-api.git/" + token
 
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", api_link)
+    // xhr.open("GET", api_link)
+    xhr.open("POST", api_link, true)
     // xhr.responseType = "text"
     // xhr.withCredentials = true;
-    // xhr.setRequestHeader("Content_Type", "application/json")
+    xhr.setRequestHeader("Content_Type", "application/json")
     let summary_wiki
     xhr.onload = () => {
         summary_wiki = xhr.response
@@ -64,7 +60,29 @@ function summaryClicked(){
             }
         chrome.runtime.sendMessage(data)
     }
-    xhr.send()
+
+    // getting data of first part of wiki page
+    let first_area = ""
+    const required_div = document.getElementById("toc")
+    let prev = required_div.previousElementSibling
+    while(prev.tagName == "P")
+    {
+        // console.log(prev.textContent);
+        prev = prev.previousElementSibling
+    }
+    let next = prev.nextElementSibling
+    while(next.tagName == "P")
+    {
+        // console.log(next.textContent)
+        first_area += next.textContent
+        next = next.nextElementSibling
+    }
+    // console.log(first_area)
+    let post_data = {
+        "text" : first_area
+    }
+
+    xhr.send(post_data)
    
 
     
