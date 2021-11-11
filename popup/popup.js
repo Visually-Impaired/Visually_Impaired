@@ -49,6 +49,8 @@ const magSize = document.getElementById("size")
 const magShape = document.getElementById("shape")
 const defaultBtn = document.getElementById("reset")
 const applyBtn = document.getElementById("save")
+//console.log(applyBtn);
+
 
 // event listeners
 applyBtn.addEventListener("click", save_options)

@@ -81,7 +81,15 @@
 #back-button-div{
     padding-left: 5px;
 }
-.back-button{
+#back-button1{
+    color: grey;
+    font-size : 15px;
+    background-color: #202124;
+    border: 1px solid grey;
+    border-radius: 7px;
+    height: 10%;
+}
+#back-button2{
     color: grey;
     font-size : 15px;
     background-color: #202124;
@@ -90,10 +98,15 @@
     height: 10%;
 }
 
-#back-button:hover{
+#back-button1:hover{
     background-color: white;
     color: black;
 }
+#back-button2:hover{
+    background-color: white;
+    color: black;
+}
+
 #cb-heading{
     padding-top: 10px;
     font-size: 20px;
@@ -155,7 +168,9 @@
     padding-top: 10px;
     font-size: 20px;
 }
-
+/* #mfr-options-div{
+    padding: 5px;
+} */
 /* height: 7%;
     color: grey;
     font-size: 13px;
@@ -163,7 +178,7 @@
     padding-top: 5px; */
 
 
-.magnifier-options{
+.mfr-options{
     padding: 5px 5px;
     color : white;
     font-size: 13px;
