@@ -17,7 +17,7 @@ for ch in article:
   if roundBracket:
     if ch == '/':
       cleanArticle = cleanArticle[:-1]
-      inPronounceBracket = True;
+      inPronounceBracket = True
   if ch == '[':
     inBracket = True
   if ch == '(':
