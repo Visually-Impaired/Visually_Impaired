@@ -31,8 +31,9 @@ for ch in article:
   if not roundBracket and inPronounceBracket:
     inPronounceBracket = False
 
+#generating summary
 bert_model = Summarizer()
-bert_summary = ''.join(bert_model(article, min_length = 100, max_length = 200))  #summary length is 10% of article length
+bert_summary = ''.join(bert_model(cleanArticle, ratio = 0.2))  #summary length is 20% of article length
 final_bert_summary = re.sub("[[@*&?].*[]@*&?]", "", bert_summary)
 print(bert_summary)
 sys.stdout.flush()
