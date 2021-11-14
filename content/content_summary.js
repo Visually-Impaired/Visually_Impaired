@@ -58,7 +58,7 @@ function summaryClicked(){
 
     // let api_link = "https://7386-2401-4900-599e-f8b6-3149-f4f7-7fa7-c3bf.ngrok.io/" + token
     // let api_link = "https://git.heroku.com/dhrishti-final-api.git/" + token
-    let api_link = "https://7386-2401-4900-599e-f8b6-3149-f4f7-7fa7-c3bf.ngrok.io/api/stuff"
+    let api_link = "https://b50a-59-89-80-164.ngrok.io/api/stuff/"
 
     // getting data of first part of wiki page
     let first_area = ""

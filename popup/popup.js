@@ -77,12 +77,30 @@ function save_options()
 
 //elements 
 const prot_btn = document.getElementById("prot")
+const deut_btn = document.getElementById("deut")
+const trit_btn = document.getElementById("trit")
 
 prot_btn.addEventListener("click", protanopia_func)
+deut_btn.addEventListener("click", deutaranopia_func)
+trit_btn.addEventListener("click", tritanopia_func)
 
 function protanopia_func()
 {
     chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
         chrome.tabs.sendMessage(tabs[0].id, {tab_id : "protanopia"})
+    })
+}
+
+function deutaranopia_func()
+{
+    chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
+        chrome.tabs.sendMessage(tabs[0].id, {tab_id : "deutaranopia"})
+    })
+}
+
+function tritanopia_func()
+{
+    chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
+        chrome.tabs.sendMessage(tabs[0].id, {tab_id : "tritanopia"})
     })
 }

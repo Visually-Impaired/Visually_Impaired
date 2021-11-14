@@ -10,7 +10,7 @@
       },
       {
         "matches" : ["https://en.wikipedia.org/wiki/*"], 
-        "js" : ["/content/content_page_dictation.js"]
+        "js" : ["/content/content_page_dictation.js", "jquery2-3.2.1.min.js"]
 
       }
       

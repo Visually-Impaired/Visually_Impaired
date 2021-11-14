@@ -1,117 +1,132 @@
 // console.log("hello")
 
 chrome.runtime.onMessage.addListener(function(message, sender, sendRequest){
-    if(message.tab_id == "protanopia")
+    if(message.tab_id == "protanopia" || message.tab_id == "deutaranopia" || message.tab_id == "tritanopia")
     {
-        var imgs = document.getElementsByTagName("img");
-        console.log(imgs[1]);
-
-        // for(let i=0; i<imgs.length; i++){
-        //     //console.log(imgs[i].alt);
-        //     //getRedPercent(imgs[i]);
-        // }
-
-        getRedPercent(imgs[1]);
-
-        function getRedPercent(current_img){
-            var w = current_img.width;
-            var h = current_img.height;
-
-            var canvas = document.createElement("canvas");
-            var ctx = canvas.getContext("2d");
-            canvas.width = w;
-            canvas.height = h;
-
-            var image = new Image();
-            image.src = current_img.src;
-            console.log(image.src);
-            image.setAttribute('crossOrigin', '');
-            // image.onload = () => {
-            //     ctx.drawImage(image, 0, 0);
+        $("img").each(function(index, element) {
+            $(element).wrap("<div class='cb-wrapperdiv'></div>");
+        });
+        
+        const wrapperDiv = document.getElementsByClassName("cb-wrapperdiv")
+        
+        for(let j=0;j<wrapperDiv.length;j++)
+        {
+            let inner_img = wrapperDiv[j].getElementsByTagName("img")[0];
+            // console.log(inner_img)
+            getColorPercent(inner_img)
+        }
+        
+        
+        
+        // let imgs = document.getElementsByTagName("img");
+        // console.log(imgs[3])
+        
+        
+        // getRedPercent(imgs[3])
+        
+        function getColorPercent(current_img)
+        {
+        
+            let img = new Image()
+            img.crossOrigin = "anonymous"
+            img.src = current_img.src
+        
+            // creating the canvas
+            let w = current_img.width
+            let h = current_img.height
+            let canvas = document.createElement("canvas")
+            canvas.width = w
+            canvas.height = h 
+        
+            let ctx = canvas.getContext("2d")
+            let pixel; 
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0);
+                pixel = ctx.getImageData(0,0,w,h)
+                readImage(pixel, current_img)
+              };
+        }
+        
+        function readImage(imageData, actual_img)
+        {
+            let reds = 0;
+            let greens = 0;
+            let blues = 0;
+            let total = 0;
+            for(let i=0;i<imageData.data.length; i+=4)
+            {
+                reds += imageData.data[i]
+                greens += imageData.data[i+1]
+                blues += imageData.data[i+2]
+                total += imageData.data[i] + imageData.data[i+1] + imageData.data[i+2]
+            }
+            // console.log("reds: " + reds)
+            // console.log("total: " + total)
+        
+            let red_percentage = (reds/total)*100
+            let green_percentage = (greens/total)*100
+            let blue_percentage = (blues/total)*100
+            // console.log("percentage red in image: " + percentage + "%")
+            // if(percentage>30)
+            // {
+            //     coloroverlay(actual_img)
             // }
 
-            //ctx.drawImage(image, 0, 0, w, h);
-            var imageData = ctx.getImageData(0, 0, w, h);
-
-            var reds = 0;
-            var reds2 = 0;
-            var others = 0;
-            for(let j=0; j<imageData.data.length; j+=4){
-                //imageData.data[i] == red
-                //imageData.data[i+1] == green
-                //imageData.data[i+2] == blue
-                var red = imageData.data[j];
-                var green = imageData.data[j+1];
-                var blue = imageData.data[j+2];
-                //console.log(red, green, blue);
-                //console.log(red>blue);
-                //console.log(red>green);
-                console.log(red>20);
-                if(red>blue && red>green){
-                    //this is a red pixel
-                    console.log("inside red");
-                    reds++;
-                }
-                else if(red>20){
-                    reds2++;
-                }
-                others++;
+            if(message.tab_id == "protanopia" && red_percentage>30)
+            {
+                // console.log("prot")
+                coloroverlay(actual_img);
             }
-            console.log("reds", reds);
-            console.log("reds2", reds2);
-            console.log("others", others);
-            var percent = (reds/others)*100;
-            console.log(percent);
-            if(percent>=20){
-                coloroverlay(current_img);
+            else if(message.tab_id == "deutaranopia" && green_percentage>30)
+            {
+                // console.log("deut")
+                coloroverlay(actual_img)
             }
-        }
-
-        // var style = document.createElement('style');
-        // style.type = 'text/css';
-        // style.innerHTML = ".overlay{background-color: rgba(174, 155, 183, 255); position: absolute; top: 0;left: 0;width:100%; height:100%;}"
-
-        // for(let i=0; i<imgs.length; i++){
-        //     coloroverlay(imgs[i], "DIV");
-        // }
-        coloroverlay(imgs[1], "DIV");
-        coloroverlay(imgs[2], "DIV");
-        coloroverlay(imgs[3], "DIV");
-        coloroverlay(imgs[4], "DIV");
-        coloroverlay(imgs[5], "DIV");
-
-        function coloroverlay(currentTag, targetTag){
-            if(currentTag.nodeName === targetTag){
-                console.log(currentTag);
-                currentTag.style.position = "relative";
-                var imageDiv = document.createElement('div');
-                currentTag.appendChild(imageDiv);
-                imageDiv.style.backgroundColor = "rgba(76, 69, 213, 0.5)";
-                imageDiv.style.position = "absolute";
-                imageDiv.style.left = "0";
-                imageDiv.style.top = "0";
-                imageDiv.style.width = "100%";
-                imageDiv.style.height = "100%";
-                // return currentTag;
+            else if(message.tab_id == "tritanopia" && blue_percentage>30)
+            {
+                // console.log("trit")
+                coloroverlay(actual_img)
             }
-            else{
-                coloroverlay(currentTag.parentElement, targetTag);
-            }
-        }
-
-        // function coloroverlay(img){
         
-        //     var outerDiv = findParentDiv(img, "DIV");
-        //     console.log(outerDiv);
-        //     //var imageDiv = document.createElement('span');
-        //     //imageDiv.appendChild(img);
-        //     // imageDiv.style.background = "rgba(174, 155, 183, 255)";
-        //     // imageDiv.style.top = "0";
-        //     // imageDiv.style.left = "0";
-        //     //img.style.position = "absolute";
-        //     // img.style.width = "100%";
-        //     // img.style.height = "100%";
-        // }
+            // increasing filters for every image 
+            actual_img.style.filter = "contrast(130%)"
+            actual_img.style.filter = "saturate(130%)"
+        }
+        
+        
+        function coloroverlay(actual_img)
+        {
+            parentDiv = actual_img.parentElement;
+            let overlay_div = document.createElement("div")
+            parentDiv.appendChild(overlay_div);
+            parentDiv.style.position = "relative"
+            actual_img.style.display = "block"
+        
+            overlay_div.style.position = "absolute"
+            overlay_div.style.left = "0";
+            overlay_div.style.top = "0";
+            overlay_div.style.bottom = "0";
+            overlay_div.style.right = "0";
+            overlay_div.style.width = "100%"
+            overlay_div.style.height = "100%"
+
+
+            if(message.tab_id == "protanopia")
+            {
+                overlay_div.style.backgroundColor = "rgba(76, 69, 213, 0.2)";
+            }
+            else if(message.tab_id == "deutaranopia")
+            {
+                // to be changed
+                overlay_div.style.backgroundColor = "rgba(0, 69, 213, 0.7)";
+            }
+            else if(message.tab_id == "tritanopia")
+            {
+                // to be changed
+                overlay_div.style.backgroundColor = "rgba(0, 69, 213, 1)";
+            }        
+            // console.log(message.tab_id) 
+        }
     }
 })
 

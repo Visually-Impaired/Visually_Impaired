@@ -25,6 +25,21 @@ speedInput.addEventListener('input', ()=>{
     playText(utterance.text.substring(currentCharacter))
 })
 
+document.addEventListener("keydown", (e) => {
+    if(e.key == "f")
+    {
+        playText(textInput.textContent);
+    }
+    else if(e.key == "g")
+    {
+        pauseText();
+    }
+    else if(e.key == "h")
+    {
+        stopText();
+    }
+} )
+
 
 // this is the character index of the character where the text has stopped
 let currentCharacter
