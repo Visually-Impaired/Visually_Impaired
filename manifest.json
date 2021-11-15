@@ -5,12 +5,12 @@
     "content_scripts": [
       {
         "matches": ["<all_urls>"],
-        "js" : [ "/content/content_navigation_voice_search.js",
-        "/content/content_summary.js", "/content/content_magnifier.js", "content/content_colorblind.js"]
+        "js" : ["/content/content_general_wiki.js"],
+        "excude_matches" : ["https://en.wikipedia.org/wiki/*"]
       },
       {
-        "matches" : ["https://en.wikipedia.org/wiki/*"], 
-        "js" : ["/content/content_page_dictation.js", "jquery2-3.2.1.min.js"]
+        "matches" : ["https://en.wikipedia.org/wiki/*", "https://www.wikipedia.org/"], 
+        "js" : ["/content/content_summary.js", "/content/content_navigation_voice_search.js", "/content/content_page_dictation.js", "jquery2-3.2.1.min.js", "content/content_colorblind.js", "/content/content_magnifier.js"]
 
       }
       

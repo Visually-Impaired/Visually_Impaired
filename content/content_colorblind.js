@@ -1,11 +1,26 @@
 // console.log("hello")
 
+// to create wrapper div around all imgs 
+$("img").each(function(index, element) {
+    $(element).wrap("<div class='cb-wrapperdiv'></div>");
+});
+
+// to add overlay div next to img 
+const wrapper_div = document.getElementsByClassName("cb-wrapperdiv")
+for(let i=0;i<wrapper_div.length;i++)
+{
+    let overlayDiv = document.createElement("div")
+    overlayDiv.classList.add("overlay-div")
+    wrapper_div[i].appendChild(overlayDiv);
+}
+
+
+
+
 chrome.runtime.onMessage.addListener(function(message, sender, sendRequest){
     if(message.tab_id == "protanopia" || message.tab_id == "deutaranopia" || message.tab_id == "tritanopia")
     {
-        $("img").each(function(index, element) {
-            $(element).wrap("<div class='cb-wrapperdiv'></div>");
-        });
+        
         
         const wrapperDiv = document.getElementsByClassName("cb-wrapperdiv")
         
@@ -96,12 +111,12 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendRequest){
         
         function coloroverlay(actual_img)
         {
-            parentDiv = actual_img.parentElement;
-            let overlay_div = document.createElement("div")
-            parentDiv.appendChild(overlay_div);
+            let parentDiv = actual_img.parentElement;
+            let overlay_div = parentDiv.getElementsByClassName("overlay-div")[0]
+            
             parentDiv.style.position = "relative"
             actual_img.style.display = "block"
-        
+
             overlay_div.style.position = "absolute"
             overlay_div.style.left = "0";
             overlay_div.style.top = "0";

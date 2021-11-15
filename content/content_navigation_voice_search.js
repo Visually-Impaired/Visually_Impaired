@@ -61,23 +61,16 @@ let keysPressed = {}
 document.addEventListener('keydown', (event) => {
   keysPressed[event.key] = true;
 
-  
-  //to move to wikipedia in new tab shift+space is clicked
-  if (keysPressed['Shift'] && event.key == " ") {
-    // window.location.href = 'https://www.wikipedia.org/'
-    window.open('https://www.wikipedia.org/', '_blank').focus();
-  }
   if(search!=null)  
   {
     if(keysPressed[' '] && event.key == 'ArrowUp')
-  {
-    recognition.start()
-  }
-  if(keysPressed[' '] && event.key == 'ArrowDown')
-  {
-    recognition.stop()
-  }
-
+    {
+      recognition.start()
+    }
+    if(keysPressed[' '] && event.key == 'ArrowDown')
+    {
+      recognition.stop()
+    }
   }
   
 });
