@@ -128,19 +128,19 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendRequest){
 
             if(message.tab_id == "protanopia")
             {
-                overlay_div.style.backgroundColor = "rgba(76, 69, 213, 0.2)";
+                overlay_div.style.backgroundColor = "rgba(76, 69, 213, 0.4)";
             }
             else if(message.tab_id == "deutaranopia")
             {
                 // to be changed
-                overlay_div.style.backgroundColor = "rgba(0, 69, 0, 0.2)";
+                overlay_div.style.backgroundColor = "rgba(237, 24, 122, 0.2)";
             }
             else if(message.tab_id == "tritanopia")
             {
                 // to be changed
-                overlay_div.style.backgroundColor = "rgba(34, 22, 45, 0.2)";
+                overlay_div.style.backgroundColor = "rgba(255, 245, 0, 0.4)";
             }        
-            // console.log(message.tab_id) 
+            // console.log(message.tab_id)
         }
     }
 })
