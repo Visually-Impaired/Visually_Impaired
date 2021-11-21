@@ -104,8 +104,8 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendRequest){
             }
         
             // increasing filters for every image 
-            actual_img.style.filter = "contrast(130%)"
-            actual_img.style.filter = "saturate(130%)"
+            actual_img.style.filter = "contrast(150%)"
+            actual_img.style.filter = "saturate(150%)"
         }
         
         
@@ -128,7 +128,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendRequest){
 
             if(message.tab_id == "protanopia")
             {
-                overlay_div.style.backgroundColor = "rgba(76, 69, 213, 0.4)";
+                overlay_div.style.backgroundColor = "rgba(76, 69, 213, 0.35)";
             }
             else if(message.tab_id == "deutaranopia")
             {
