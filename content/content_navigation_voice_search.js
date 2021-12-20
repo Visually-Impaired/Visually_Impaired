@@ -6,6 +6,15 @@ const search = document.getElementById("searchInput")
 
 //speech synthesis
 const utterance = new SpeechSynthesisUtterance()
+
+// to change the dialect to indian at page reload
+// const voices = speechSynthesis.getVoices()
+// window.addEventListener("load", () =>{
+//   // utterance.voice = voices[0]
+//   // console.log(utterance.voice)
+//   console.log(speechSynthesis.getVoices())
+// })
+// console.log(utterance.voice)
 utterance.rate = 1.5
 
 // // speech recognition

@@ -14,6 +14,11 @@ for(let i=0; i<content.length; i++)
 
 // utterance 
 const utterance2 = new SpeechSynthesisUtterance()
+// utterance2.voice = voices[0]
+
+// to change the dialect to indian at page reload
+// utterance2.voice = speechSynthesis.getVoices()[0]
+// console.log(utterance2.voice)
 
 // // speech recognition
 const SpeechRecognition2 = window.SpeechRecognition || window.webkitSpeechRecognition
